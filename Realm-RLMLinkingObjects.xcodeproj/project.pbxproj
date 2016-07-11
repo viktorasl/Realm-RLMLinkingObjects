@@ -14,6 +14,8 @@
 		6EADA9451D33BCC7009C6EAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EADA9441D33BCC7009C6EAF /* Assets.xcassets */; };
 		6EADA9481D33BCC7009C6EAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EADA9461D33BCC7009C6EAF /* LaunchScreen.storyboard */; };
 		6EADA9531D33BCC7009C6EAF /* Realm_RLMLinkingObjectsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EADA9521D33BCC7009C6EAF /* Realm_RLMLinkingObjectsTests.m */; };
+		6EADA95F1D33BDC1009C6EAF /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EADA95E1D33BDC1009C6EAF /* Person.m */; };
+		6EADA9621D33BE11009C6EAF /* Dog.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EADA9611D33BE11009C6EAF /* Dog.m */; };
 		6F17BA0E78E88DA7E3882E7E /* libPods-Realm-RLMLinkingObjectsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A4BC18FC37521FB15AD2E8F /* libPods-Realm-RLMLinkingObjectsTests.a */; };
 		CDD50C1C5FEA23471BD515A3 /* libPods-Realm-RLMLinkingObjects.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F24E2DA1228CBC63AACB5CA /* libPods-Realm-RLMLinkingObjects.a */; };
 /* End PBXBuildFile section */
@@ -46,6 +48,10 @@
 		6EADA94E1D33BCC7009C6EAF /* Realm-RLMLinkingObjectsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Realm-RLMLinkingObjectsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EADA9521D33BCC7009C6EAF /* Realm_RLMLinkingObjectsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Realm_RLMLinkingObjectsTests.m; sourceTree = "<group>"; };
 		6EADA9541D33BCC7009C6EAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6EADA95D1D33BDC1009C6EAF /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		6EADA95E1D33BDC1009C6EAF /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		6EADA9601D33BE11009C6EAF /* Dog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dog.h; sourceTree = "<group>"; };
+		6EADA9611D33BE11009C6EAF /* Dog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dog.m; sourceTree = "<group>"; };
 		8A98BA880B32FB19D0503345 /* Pods-Realm-RLMLinkingObjectsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Realm-RLMLinkingObjectsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Realm-RLMLinkingObjectsTests/Pods-Realm-RLMLinkingObjectsTests.release.xcconfig"; sourceTree = "<group>"; };
 		D1DB61F67C07B37A470815AC /* Pods-Realm-RLMLinkingObjects.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Realm-RLMLinkingObjects.release.xcconfig"; path = "Pods/Target Support Files/Pods-Realm-RLMLinkingObjects/Pods-Realm-RLMLinkingObjects.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,6 +108,10 @@
 				6EADA9461D33BCC7009C6EAF /* LaunchScreen.storyboard */,
 				6EADA9491D33BCC7009C6EAF /* Info.plist */,
 				6EADA9381D33BCC7009C6EAF /* Supporting Files */,
+				6EADA95D1D33BDC1009C6EAF /* Person.h */,
+				6EADA95E1D33BDC1009C6EAF /* Person.m */,
+				6EADA9601D33BE11009C6EAF /* Dog.h */,
+				6EADA9611D33BE11009C6EAF /* Dog.m */,
 			);
 			path = "Realm-RLMLinkingObjects";
 			sourceTree = "<group>";
@@ -344,6 +354,8 @@
 			files = (
 				6EADA9401D33BCC7009C6EAF /* ViewController.m in Sources */,
 				6EADA93D1D33BCC7009C6EAF /* AppDelegate.m in Sources */,
+				6EADA9621D33BE11009C6EAF /* Dog.m in Sources */,
+				6EADA95F1D33BDC1009C6EAF /* Person.m in Sources */,
 				6EADA93A1D33BCC7009C6EAF /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
