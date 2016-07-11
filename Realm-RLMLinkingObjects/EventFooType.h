@@ -12,6 +12,7 @@
 @interface EventFooType : RLMObject
 
 @property NSInteger identifier;
+@property NSString *name;
 @property NSInteger fooIntProperty;
 @property EventToken *token;
 
