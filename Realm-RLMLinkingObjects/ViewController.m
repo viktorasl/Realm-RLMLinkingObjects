@@ -52,6 +52,18 @@
     NSAssert([EventFooType allObjects].count == 2, nil);
     NSAssert([EventBarType allObjects].count == 1, nil);
     NSAssert([EventToken allObjects].count == 3, nil);
+    
+    RLMResults *fooEvents = [EventToken objectsWhere:@"ANY fooEvents.fooIntProperty = %@", @(1)];
+    NSAssert(fooEvents.count == 1, nil);
+    
+    [fooEvents.realm transactionWithBlock:^{
+        p1.fooIntProperty = 2;
+    }];
+    
+    RLMResults *newlyQueriedFooEvents = [EventToken objectsWhere:@"ANY fooEvents.fooIntProperty = %@", @(1)];
+    NSAssert(newlyQueriedFooEvents.count == 0, nil);
+    
+    NSAssert(fooEvents.count == 0, @"fooEvents RLMResults is expected to be updated after transaction");
 }
 
 - (void)didReceiveMemoryWarning {
