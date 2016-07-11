@@ -7,8 +7,8 @@
 //
 
 #import "ViewController.h"
-#import "Dog.h"
-#import "Person.h"
+#import "EventFooType.h"
+#import "EventBarType.h"
 
 @interface ViewController ()
 
@@ -26,31 +26,32 @@
 #warning without this runtime error occures saying that Dog is not persistent in realm (probably because on Appointment.initWithValue scheme was not initialized)
     [RLMRealm defaultRealm];
     
-    Person *p1 = [[Person alloc] initWithValue:@{
+    EventFooType *p1 = [[EventFooType alloc] initWithValue:@{
                                                 @"identifier": @(1),
-                                                @"name": @"John Stockton",
-                                                @"dogwalkersGroupId": @(1),
-                                                @"dogs": @[
-                                                    @{@"identifier": @(1)}
-                                                ]
-    }];
+                                                @"fooIntProperty": @(1),
+                                                @"token": @{@"identifier": @(1)}
+                                                }];
+    EventFooType *p3 = [[EventFooType alloc] initWithValue:@{
+                                                @"identifier": @(2),
+                                                @"fooIntProperty": @(2),
+                                                @"token": @{@"identifier": @(2)}
+                                                }];
     
-    Person *p2 = [[Person alloc] initWithValue:@{
-                                                 @"identifier": @(2),
-                                                 @"name": @"Karl Malone",
-                                                 @"dogwalkersGroupId": @(2),
-                                                 @"dogs": @[
-                                                         @{@"identifier": @(2)}
-                                                         ]
+    EventBarType *p2 = [[EventBarType alloc] initWithValue:@{
+                                                 @"identifier": @(1),
+                                                 @"barIntProperty": @(1),
+                                                 @"token": @{@"identifier": @(3)}
                                                  }];
     
     RLMRealm *realm = [RLMRealm defaultRealm];
     [realm transactionWithBlock:^{
-        [realm addOrUpdateObjectsFromArray:@[p1, p2]];
+        [realm addOrUpdateObjectsFromArray:@[p1, p3]];
+        [realm addOrUpdateObjectsFromArray:@[p2]];
     }];
     
-    NSAssert([Dog allObjects].count == 2, @"Dogs count expected to be equal to 1");
-    NSAssert([Person allObjects].count == 2, @"People count expected to be equal to 1");
+    NSAssert([EventFooType allObjects].count == 2, nil);
+    NSAssert([EventBarType allObjects].count == 1, nil);
+    NSAssert([EventToken allObjects].count == 3, nil);
 }
 
 - (void)didReceiveMemoryWarning {

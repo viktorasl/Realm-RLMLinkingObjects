@@ -1,5 +1,5 @@
 //
-//  Dog.h
+//  EventFooType.h
 //  Realm-RLMLinkingObjects
 //
 //  Created by Viktoras Laukevičius on 11/07/16.
@@ -7,12 +7,12 @@
 //
 
 #import <Realm/Realm.h>
+#import "EventToken.h"
 
-@interface Dog : RLMObject
+@interface EventFooType : RLMObject
 
-@property (nonatomic) NSInteger identifier;
-@property (readonly) RLMLinkingObjects *owners;
+@property NSInteger identifier;
+@property NSInteger fooIntProperty;
+@property EventToken *token;
 
 @end
-
-RLM_ARRAY_TYPE(Dog)

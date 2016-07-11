@@ -1,5 +1,5 @@
 //
-//  Person.h
+//  EventBarType.h
 //  Realm-RLMLinkingObjects
 //
 //  Created by Viktoras Laukevičius on 11/07/16.
@@ -7,13 +7,12 @@
 //
 
 #import <Realm/Realm.h>
-#import "Dog.h"
+#import "EventToken.h"
 
-@interface Person : RLMObject
+@interface EventBarType : RLMObject
 
 @property NSInteger identifier;
-@property NSInteger dogwalkersGroupId;
-@property NSString *name;
-@property RLMArray<Dog *><Dog> *dogs;
+@property NSInteger barIntProperty;
+@property EventToken *token;
 
 @end

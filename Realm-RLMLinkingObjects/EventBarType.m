@@ -1,14 +1,14 @@
 //
-//  Person.m
+//  EventBarType.m
 //  Realm-RLMLinkingObjects
 //
 //  Created by Viktoras Laukevičius on 11/07/16.
 //  Copyright © 2016 Viktoras Laukevičius. All rights reserved.
 //
 
-#import "Person.h"
+#import "EventBarType.h"
 
-@implementation Person
+@implementation EventBarType
 
 + (NSString *)primaryKey {
     return @"identifier";
