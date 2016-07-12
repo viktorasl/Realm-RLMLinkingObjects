@@ -39,7 +39,8 @@
     defaultConfig.deleteRealmIfMigrationNeeded = YES;
     [RLMRealmConfiguration setDefaultConfiguration:defaultConfig];
     
-#warning Q2: without this runtime error occures saying that Dog is not persistent in realm (probably because on Appointment.initWithValue scheme was not initialized)
+#warning Q2: without explicitly calling this runtime error occures stating:\\
+    *** Terminating app due to uncaught exception 'RLMException', reason: 'Object type 'EventToken' not persisted in Realm'
     [RLMRealm defaultRealm];
     
     self.p1 = [[EventFooType alloc] initWithValue:@{
