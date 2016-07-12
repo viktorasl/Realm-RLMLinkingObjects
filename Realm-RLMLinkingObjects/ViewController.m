@@ -78,6 +78,18 @@
     self.fooTypeEventsNotificationToken = [self.fooEvents addNotificationBlock:^(RLMResults * _Nullable results, RLMCollectionChange * _Nullable change, NSError * _Nullable error) {
         NSLog(@"Notification block has been called");
     }];
+    
+    // If that is done on the same dispatch fooEvents are updated
+    [realm transactionWithBlock:^{
+        self.p1.fooIntProperty = 2;
+    }];
+    NSAssert(self.fooEvents.count == 0, nil);
+    
+    // rolling back the changes
+    [realm transactionWithBlock:^{
+        self.p1.fooIntProperty = 1;
+    }];
+    NSAssert(self.fooEvents.count == 1, nil);
 }
 
 - (IBAction)changeP1FooIntProperty:(UIButton *)sender {
