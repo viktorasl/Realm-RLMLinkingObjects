@@ -17,7 +17,7 @@
 @implementation EventToken(EventTokenAll)
 
 + (RLMResults *)particularFooEventIntPropertyTokens {
-    return [self objectsWhere:@"ANY fooEvents.fooIntProperty = %@", @(1)];
+    return [self objectsWhere:@"ANY fooEvents.fooIntProperty >= %@ AND ANY fooEvents.fooIntProperty <= %@", @(1), @(10)];
 }
 
 @end
@@ -73,36 +73,25 @@
     NSAssert([EventToken allObjects].count == 3, nil);
     
     self.fooEvents = [EventToken particularFooEventIntPropertyTokens];
-    NSAssert(self.fooEvents.count == 1, nil);
+    NSAssert(self.fooEvents.count == 2, nil);
     
     self.fooTypeEventsNotificationToken = [self.fooEvents addNotificationBlock:^(RLMResults * _Nullable results, RLMCollectionChange * _Nullable change, NSError * _Nullable error) {
         NSLog(@"Notification block has been called");
     }];
-    
-    // If that is done on the same dispatch fooEvents are updated
-    [realm transactionWithBlock:^{
-        self.p1.fooIntProperty = 2;
-    }];
-    NSAssert(self.fooEvents.count == 0, nil);
-    
-    // rolling back the changes
-    [realm transactionWithBlock:^{
-        self.p1.fooIntProperty = 1;
-    }];
-    NSAssert(self.fooEvents.count == 1, nil);
 }
 
-- (IBAction)changeP1FooIntProperty:(UIButton *)sender {
+- (IBAction)setP1FooIntPropertyTo12:(UIButton *)sender {
     RLMRealm *realm = [RLMRealm defaultRealm];
     [realm transactionWithBlock:^{
-        self.p1.fooIntProperty = 2;
+        self.p1.fooIntProperty = 12;
     }];
-    
-    RLMResults *newlyQueriedFooEvents = [EventToken particularFooEventIntPropertyTokens];
-    NSAssert(newlyQueriedFooEvents.count == 0, nil);
-    
-#warning Q1: fooEvents are not live updated
-    NSAssert(self.fooEvents.count == 0, @"It is expected that fooEvents RLMResults would have been live updated");
+}
+
+- (IBAction)setP1FooIntPropertyTo8:(UIButton *)sender {
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    [realm transactionWithBlock:^{
+        self.p1.fooIntProperty = 8;
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
